@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		String[] nums = in.nextLine().split("");
+		int sum = 0;
+		for (String each : nums){
+			if (!each.equals("")) sum += Integer.parseInt(each);
+		}
+				
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (sum==0) System.out.print("zero");
+		else{
+			while (sum!=0){
+				list.add(sum%10);
+				sum /= 10;
+			}
+			String[] spell = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+			System.out.print(spell[list.get(list.size()-1)]);
+			if ( list.size()>1 ){
+				for (int i=list.size()-2;i>=0;i--){
+					System.out.print(" " + spell[list.get(i)]);
+				}
+			}
+		}
+		
+		
+		
+		
+		in.close();
+	}
+
+}
